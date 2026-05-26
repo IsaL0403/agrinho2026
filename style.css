@@ -1,12 +1,16 @@
-/* =========================
-   RESET E CONFIGURAÇÕES
-========================= */
+/* ===================================
+   RESET E CONFIGURAÇÕES GERAIS
+=================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* ===================================
+   VARIÁVEIS
+=================================== */
 
 :root {
 
@@ -16,38 +20,45 @@
 
     --branco: #ffffff;
     --cinza-claro: #f8f9fa;
-    --texto: #1d1d1d;
+    --cinza-texto: #222222;
 
     --sombra:
-        0 4px 12px rgba(0, 0, 0, 0.08);
+        0 4px 15px rgba(0, 0, 0, 0.08);
 
     --transicao: 0.3s ease;
 }
 
-/* =========================
+/* ===================================
    ACESSIBILIDADE
-========================= */
+=================================== */
 
 .skip-link {
 
     position: absolute;
+
     left: -999px;
+
     top: 10px;
 
-    background: black;
+    background-color: black;
+
     color: white;
 
-    padding: 10px;
-    z-index: 999;
+    padding: 10px 15px;
+
+    border-radius: 6px;
+
+    z-index: 9999;
 }
 
 .skip-link:focus {
+
     left: 10px;
 }
 
-/* =========================
+/* ===================================
    BODY
-========================= */
+=================================== */
 
 body {
 
@@ -55,28 +66,29 @@ body {
 
     background-color: var(--cinza-claro);
 
-    color: var(--texto);
+    color: var(--cinza-texto);
 
-    line-height: 1.7;
+    line-height: 1.8;
 
     scroll-behavior: smooth;
 }
 
-/* =========================
+/* ===================================
    CONTAINER
-========================= */
+=================================== */
 
 .container {
 
     width: 90%;
+
     max-width: 1200px;
 
     margin: auto;
 }
 
-/* =========================
+/* ===================================
    HEADER
-========================= */
+=================================== */
 
 .header {
 
@@ -91,7 +103,7 @@ body {
 
     text-align: center;
 
-    padding: 70px 20px;
+    padding: 80px 20px;
 }
 
 .header h1 {
@@ -99,6 +111,8 @@ body {
     font-size: 3rem;
 
     margin-bottom: 15px;
+
+    font-weight: 700;
 }
 
 .subtitle {
@@ -106,11 +120,15 @@ body {
     font-size: 1.2rem;
 
     opacity: 0.95;
+
+    max-width: 700px;
+
+    margin: auto;
 }
 
-/* =========================
+/* ===================================
    MENU
-========================= */
+=================================== */
 
 .navbar {
 
@@ -131,6 +149,8 @@ body {
 
     justify-content: center;
 
+    align-items: center;
+
     gap: 30px;
 
     list-style: none;
@@ -147,6 +167,35 @@ body {
     font-weight: 500;
 
     transition: var(--transicao);
+
+    position: relative;
+}
+
+/* Linha animada */
+
+.nav-list a::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+
+    height: 2px;
+
+    left: 0;
+
+    bottom: -5px;
+
+    background-color: var(--verde-claro);
+
+    transition: var(--transicao);
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus::after {
+
+    width: 100%;
 }
 
 .nav-list a:hover,
@@ -155,64 +204,75 @@ body {
     color: var(--verde-claro);
 }
 
-/* =========================
+/* ===================================
    HERO
-========================= */
+=================================== */
 
 .hero {
 
     background:
-        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop")
-        center/cover no-repeat;
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop");
 
-    height: 85vh;
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    min-height: 90vh;
 
     display: flex;
 
     justify-content: center;
 
     align-items: center;
+
+    padding: 20px;
 }
 
 .hero-overlay {
 
     background:
-        rgba(0, 0, 0, 0.55);
+        rgba(0, 0, 0, 0.50);
 
     color: white;
 
     text-align: center;
 
-    padding: 45px;
+    padding: 50px;
 
-    border-radius: 15px;
+    border-radius: 16px;
 
-    width: 85%;
+    width: 90%;
 
-    max-width: 700px;
+    max-width: 750px;
 
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
 
-    animation: fadeIn 1.5s ease;
+    animation: fadeIn 1.2s ease;
 }
 
 .hero-overlay h2 {
 
-    font-size: 2.5rem;
+    font-size: 2.7rem;
 
     margin-bottom: 20px;
 }
 
 .hero-overlay p {
 
-    margin-bottom: 25px;
-
     font-size: 1.1rem;
+
+    margin-bottom: 30px;
 }
 
-/* =========================
-   BOTÕES
-========================= */
+/* ===================================
+   BOTÃO
+=================================== */
 
 .btn {
 
@@ -224,17 +284,15 @@ body {
 
     text-decoration: none;
 
-    padding: 14px 28px;
+    padding: 14px 30px;
 
     border-radius: 8px;
 
-    border: none;
-
-    cursor: pointer;
+    font-weight: 600;
 
     transition: var(--transicao);
 
-    font-weight: 600;
+    box-shadow: var(--sombra);
 }
 
 .btn:hover,
@@ -242,16 +300,16 @@ body {
 
     background-color: var(--verde-escuro);
 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* =========================
+/* ===================================
    SEÇÕES
-========================= */
+=================================== */
 
 .section {
 
-    padding: 80px 20px;
+    padding: 90px 20px;
 
     text-align: center;
 }
@@ -260,19 +318,53 @@ body {
 
     color: var(--verde-escuro);
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
-    font-size: 2.2rem;
+    font-size: 2.3rem;
+
+    position: relative;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* Linha decorativa */
+
+.section h2::after {
+
+    content: "";
+
+    width: 90px;
+
+    height: 4px;
+
+    background-color: var(--verde-medio);
+
+    display: block;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+}
+
+.section p {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    font-size: 1.05rem;
+}
+
+/* ===================================
+   SEÇÃO VERDE
+=================================== */
 
 .green-section {
 
     background-color: #e9f5ec;
 }
+
+/* ===================================
+   CARDS
+=================================== */
 
 .cards {
 
@@ -280,11 +372,11 @@ body {
 
     justify-content: center;
 
-    gap: 25px;
-
     flex-wrap: wrap;
 
-    margin-top: 40px;
+    gap: 30px;
+
+    margin-top: 50px;
 }
 
 .card {
@@ -293,9 +385,9 @@ body {
 
     width: 320px;
 
-    padding: 30px;
+    padding: 35px 28px;
 
-    border-radius: 14px;
+    border-radius: 15px;
 
     box-shadow: var(--sombra);
 
@@ -304,19 +396,29 @@ body {
 
 .card:hover {
 
-    transform: translateY(-6px);
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .card h3 {
 
-    margin-bottom: 15px;
-
     color: var(--verde-medio);
+
+    margin-bottom: 18px;
+
+    font-size: 1.3rem;
 }
 
-/* =========================
-   DARK SECTION
-========================= */
+.card p {
+
+    font-size: 1rem;
+}
+
+/* ===================================
+   SEÇÃO ESCURA
+=================================== */
 
 .dark-section {
 
@@ -330,86 +432,34 @@ body {
     color: white;
 }
 
-/* =========================
-   FORMULÁRIO
-========================= */
+.dark-section h2::after {
 
-form {
-
-    max-width: 600px;
-
-    margin: 40px auto 0;
-
-    text-align: left;
+    background-color: var(--verde-claro);
 }
 
-.input-group {
-
-    margin-bottom: 20px;
-}
-
-label {
-
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-weight: 600;
-}
-
-input,
-textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border: 2px solid #ccc;
-
-    border-radius: 8px;
-
-    font-size: 1rem;
-
-    transition: var(--transicao);
-}
-
-input:focus,
-textarea:focus {
-
-    border-color: var(--verde-medio);
-
-    outline: none;
-
-    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.2);
-}
-
-#mensagem-sucesso {
-
-    margin-top: 20px;
-
-    font-weight: 600;
-
-    text-align: center;
-}
-
-/* =========================
+/* ===================================
    FOOTER
-========================= */
+=================================== */
 
 .footer {
 
-    background-color: var(--verde-escuro);
+    background-color: #10251c;
 
     color: white;
 
     text-align: center;
 
-    padding: 30px 20px;
+    padding: 35px 20px;
 }
 
-/* =========================
-   ANIMAÇÕES
-========================= */
+.footer p {
+
+    margin-bottom: 10px;
+}
+
+/* ===================================
+   ANIMAÇÃO
+=================================== */
 
 @keyframes fadeIn {
 
@@ -417,7 +467,7 @@ textarea:focus {
 
         opacity: 0;
 
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
 
     to {
@@ -428,9 +478,9 @@ textarea:focus {
     }
 }
 
-/* =========================
+/* ===================================
    RESPONSIVIDADE
-========================= */
+=================================== */
 
 @media (max-width: 768px) {
 
@@ -439,16 +489,19 @@ textarea:focus {
         font-size: 2rem;
     }
 
+    .hero-overlay {
+
+        padding: 35px 25px;
+    }
+
     .hero-overlay h2 {
 
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 
     .nav-list {
 
         flex-direction: column;
-
-        align-items: center;
 
         gap: 15px;
     }
@@ -458,5 +511,15 @@ textarea:focus {
         flex-direction: column;
 
         align-items: center;
+    }
+
+    .section {
+
+        padding: 70px 20px;
+    }
+
+    .section h2 {
+
+        font-size: 1.8rem;
     }
 }
