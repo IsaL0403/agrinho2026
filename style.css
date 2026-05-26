@@ -1,0 +1,462 @@
+/* =========================
+   RESET E CONFIGURAÇÕES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --verde-escuro: #1b4332;
+    --verde-medio: #2d6a4f;
+    --verde-claro: #95d5b2;
+
+    --branco: #ffffff;
+    --cinza-claro: #f8f9fa;
+    --texto: #1d1d1d;
+
+    --sombra:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    --transicao: 0.3s ease;
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+.skip-link {
+
+    position: absolute;
+    left: -999px;
+    top: 10px;
+
+    background: black;
+    color: white;
+
+    padding: 10px;
+    z-index: 999;
+}
+
+.skip-link:focus {
+    left: 10px;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background-color: var(--cinza-claro);
+
+    color: var(--texto);
+
+    line-height: 1.7;
+
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 90%;
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde-escuro),
+            var(--verde-medio)
+        );
+
+    color: var(--branco);
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.header h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+}
+
+.subtitle {
+
+    font-size: 1.2rem;
+
+    opacity: 0.95;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.navbar {
+
+    background-color: var(--verde-escuro);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: var(--sombra);
+}
+
+.nav-list {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    list-style: none;
+
+    padding: 18px;
+}
+
+.nav-list a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    transition: var(--transicao);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+
+    color: var(--verde-claro);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    background:
+        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop")
+        center/cover no-repeat;
+
+    height: 85vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.hero-overlay {
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px;
+
+    border-radius: 15px;
+
+    width: 85%;
+
+    max-width: 700px;
+
+    backdrop-filter: blur(3px);
+
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-overlay h2 {
+
+    font-size: 2.5rem;
+
+    margin-bottom: 20px;
+}
+
+.hero-overlay p {
+
+    margin-bottom: 25px;
+
+    font-size: 1.1rem;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+
+    display: inline-block;
+
+    background-color: var(--verde-medio);
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 14px 28px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+
+    font-weight: 600;
+}
+
+.btn:hover,
+.btn:focus {
+
+    background-color: var(--verde-escuro);
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section {
+
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+.section h2 {
+
+    color: var(--verde-escuro);
+
+    margin-bottom: 25px;
+
+    font-size: 2.2rem;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.green-section {
+
+    background-color: #e9f5ec;
+}
+
+.cards {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+}
+
+.card {
+
+    background-color: white;
+
+    width: 320px;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    box-shadow: var(--sombra);
+
+    transition: var(--transicao);
+}
+
+.card:hover {
+
+    transform: translateY(-6px);
+}
+
+.card h3 {
+
+    margin-bottom: 15px;
+
+    color: var(--verde-medio);
+}
+
+/* =========================
+   DARK SECTION
+========================= */
+
+.dark-section {
+
+    background-color: var(--verde-escuro);
+
+    color: white;
+}
+
+.dark-section h2 {
+
+    color: white;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+form {
+
+    max-width: 600px;
+
+    margin: 40px auto 0;
+
+    text-align: left;
+}
+
+.input-group {
+
+    margin-bottom: 20px;
+}
+
+label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 2px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    transition: var(--transicao);
+}
+
+input:focus,
+textarea:focus {
+
+    border-color: var(--verde-medio);
+
+    outline: none;
+
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.2);
+}
+
+#mensagem-sucesso {
+
+    margin-top: 20px;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    background-color: var(--verde-escuro);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    .header h1 {
+
+        font-size: 2rem;
+    }
+
+    .hero-overlay h2 {
+
+        font-size: 1.8rem;
+    }
+
+    .nav-list {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .cards {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+}
